@@ -1,0 +1,18 @@
+.DS_Store
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local training outputs and generated exports
+saved_models/*.tflite
+saved_models/*.cc
+saved_models/*.h
+saved_models/*.pkl
+saved_models/*.keras
+
+# Keep large/local datasets out of the public repository by default
+*.h5
+*.csv
