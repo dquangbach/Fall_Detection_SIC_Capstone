@@ -10,10 +10,10 @@
 constexpr int kWindowSize = 200;
 constexpr int kWindowStep = 100;
 constexpr int kNumFeatures = 8;
-constexpr int kInputSize = 11;
+constexpr int kInputSize = 8;
 
 // Probability >= kFallThreshold -> Fall
-constexpr float kFallThreshold = 0.4f;
+constexpr float kFallThreshold = 0.55f;
 
 
 // ============================================================
@@ -41,15 +41,15 @@ constexpr float kFallThreshold = 0.4f;
 // Firmware phải thực hiện chính xác cùng phép biến đổi.
 // ============================================================
 
-constexpr float kScalerMean[11] = {
+constexpr float kScalerMean[8] = {
     -0.000955664145f, -0.918024242f, -0.0770255178f, 1.0197612f, -5.17429113f, 8.42847061f,
-    -0.706117272f, 39.8188744f, 81.52845f, -0.286697984f, -14.304635f
+    -0.706117272f, 39.8188744f
 };
 
 
-constexpr float kScalerScale[11] = {
+constexpr float kScalerScale[8] = {
     0.238373831f, 0.351943135f, 0.351751238f, 0.336458623f, 41.3350639f, 46.9768333f,
-    20.5846443f, 53.403244f, 20.6121178f, 7.02423811f, 58.0181084f
+    20.5846443f, 53.403244f
 };
 
 
