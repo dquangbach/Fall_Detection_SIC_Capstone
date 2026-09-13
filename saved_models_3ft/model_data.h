@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 
-// TensorFlow Lite model embedded as a byte array.
+// Full integer INT8 TFLite model, including INT8 input and output.
 extern const unsigned char g_fall_model[];
 extern const unsigned int g_fall_model_len;
 

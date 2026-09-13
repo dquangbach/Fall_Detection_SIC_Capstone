@@ -9,3 +9,6 @@ __pycache__/
 # Keep large/local datasets out of the public repository by default
 *.h5
 *.csv
+
+# Local reference papers
+/doc/
