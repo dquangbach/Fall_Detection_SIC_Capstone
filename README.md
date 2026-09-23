@@ -136,7 +136,7 @@ Mean qua subject và metrics gộp theo window là hai cách tổng hợp khác 
 
 **Tình trạng kết quả trong repository:** có 32 checkpoint theo subject, nhưng notebook LOSO hiện lưu với output rỗng và chưa có bảng metrics LOSO được export. Vì vậy README không gán số đo từ notebook đối chứng hay validation của model cuối cho LOSO. Để công bố kết quả, lưu output cell tổng hợp và bảng từng fold sau lần chạy tương ứng.
 
-Scalers từng fold và dự đoán test chưa được lưu thành artifact riêng. `scaler.pkl` hiện có thuộc model cuối; không dùng scaler này để đánh giá lại checkpoint LOSO.
+Scalers từng fold và dự đoán test chưa được lưu thành artifact riêng. Cell mục 7 có thể nạp trực tiếp 32 file `best_model_SAxx.keras` và dựng lại scaler từ đúng 29 subject train gốc của mỗi fold, không cần train lại model. Việc này yêu cầu giữ nguyên dataset, nhãn, thứ tự subject, features, window và cách chia fold như khi train checkpoint. `scaler.pkl` hiện có thuộc model cuối; không dùng scaler này để đánh giá checkpoint LOSO.
 
 ## Train model cuối trên 32 subject
 
@@ -178,7 +178,7 @@ Trên Windows, kích hoạt bằng `.venv\Scripts\activate`. Chưa có file khó
 1. Chuẩn bị đầy đủ CSV và Excel nhãn theo cấu trúc `kfall/` ở trên.
 2. Mở `model_cnn_lstm_loso.ipynb`, chọn kernel đúng môi trường, chạy với working directory là gốc repository.
 3. Chạy các cell import, đọc nhãn, cấu hình, cache dữ liệu, augmentation và định nghĩa model.
-4. Chạy cell LOSO rồi cell tổng hợp; lưu notebook cùng output khi cần báo cáo.
+4. Nếu đã có 32 checkpoint, chạy thẳng **mục 7** để nạp model và đánh giá; chỉ cần import và các mục 1–3, bỏ qua mục 6. Nếu cần train lại, chạy mục 6 trước. Lưu notebook cùng output khi cần báo cáo.
 5. Sau khi chốt cách đánh giá, chạy cell cuối để tạo model cho toàn bộ 32 subject.
 
 Nếu chỉ cần train model cuối sau khi đã hoàn tất LOSO, có thể chạy các cell chuẩn bị ở bước 3 rồi chuyển thẳng đến cell cuối; không bắt buộc chạy lại 32 fold. Chạy lại sẽ ghi đè các artifact cùng tên trong `saved_models_cnn_lstm/`; sao lưu bộ cần giữ trước khi thực hiện.
